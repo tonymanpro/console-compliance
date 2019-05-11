@@ -26,7 +26,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
-import { ClientComponent } from './components/client/client.component';
+import { ClientsComponent } from './components/clients/clients.component';
+import { KnowClientFormComponent } from './components/clients/know-client-form/know-client-form.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ClientComponent } from './components/client/client.component';
     TooltipsComponent,
     CarouselComponent,
     TabsComponent,
-    ClientComponent
+    ClientsComponent,
+    KnowClientFormComponent
   ],
   imports: [
     BrowserModule,

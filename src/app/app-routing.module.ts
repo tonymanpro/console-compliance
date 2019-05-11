@@ -19,7 +19,8 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { TabsComponent } from './tabs/tabs.component';
 
 
-import { ClientComponent } from './components/client/client.component';
+import { ClientsComponent } from './components/clients/clients.component';
+import { KnowClientFormComponent } from './components/clients/know-client-form/know-client-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -39,7 +40,9 @@ const routes: Routes = [
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'carousel', component: CarouselComponent },
   { path: 'tabs', component: TabsComponent },
-  { path: 'client', component: ClientComponent }
+  { path: 'client', component: ClientsComponent },
+  { path: 'knowForm', component: KnowClientFormComponent },
+  
 ];
 
 @NgModule({
