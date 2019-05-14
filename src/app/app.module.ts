@@ -29,6 +29,12 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { KnowClientFormComponent } from './components/clients/know-client-form/know-client-form.component';
 
+
+//modules
+import { MaterialModule } from './material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@angular/cdk/layout';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +65,9 @@ import { KnowClientFormComponent } from './components/clients/know-client-form/k
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    LayoutModule,
     NgbModule.forRoot()
   ],
   providers: [],

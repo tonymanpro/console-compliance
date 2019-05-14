@@ -2,78 +2,66 @@
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Conozca a su cliente</h4>
+        <h4 class="card-title">Conozca a sus clientes</h4>
         <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>User</th>
-                <th>Product</th>
-                <th>Percent Complete</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Jacob</td>
-                <td>Kipo</td>
-                <td class="text-danger"> 28.76%
-                  <i class="mdi mdi-arrow-down"></i>
+
+          <mat-form-field appearance="outline" class="chip-list">
+
+            <mat-chip-list #chipList>
+
+              <mat-chip *ngFor="let item of _criteriaList" [selectable]="selectable" (removed)="remove(item)">
+                {{item}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+
+              <input placeholder="Buscar" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)">
+
+            </mat-chip-list>
+          </mat-form-field>
+
+          <table *ngIf="_RenderClients" mat-table [dataSource]="dataSource" class="full-width table table-hover">
+
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Correo </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="clientId">
+              <th mat-header-cell *matHeaderCellDef> Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.clientId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status </th>
+              <td mat-cell *matCellDef="let element">
+                <label *ngIf="element.status == 'completed'" class="badge badge-success">{{element.status}}</label>
+                <label *ngIf="element.status == 'pending'" class="badge badge-danger">{{element.status}}</label>
+                <label *ngIf="element.status == 'progress'" class="badge badge-warning">{{element.status}}</label>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                <td mat-cell *matCellDef="let row">
+                  <button mat-button (click)="getClientDetail(row)">Ver</button>
                 </td>
-                <td>
-                  <label class="badge badge-danger">Pending</label>
-                </td>
-              </tr>
-              <tr>
-                <td>Messsy</td>
-                <td>Kipo</td>
-                <td class="text-danger"> 21.06%
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label class="badge badge-warning">In progress</label>
-                </td>
-              </tr>
-              <tr>
-                <td>John</td>
-                <td>Kipo</td>
-                <td class="text-danger"> 35.00%
-                  <i class="mdi mdi-arrow-down"></i>
-                </td>
-                <td>
-                  <label class="badge badge-info">Fixed</label>
-                </td>
-              </tr>
-              <tr>
-                <td>Peter</td>
-                <td>Kipo</td>
-                <td class="text-success"> 82.00%
-                  <i class="mdi mdi-arrow-up"></i>
-                </td>
-                <td>
-                  <label class="badge badge-success">Completed</label>
-                </td>
-              </tr>
-              <tr>
-                <td>Dave</td>
-                <td>Kipo</td>
-                <td class="text-success"> 98.05%
-                  <i class="mdi mdi-arrow-up"></i>
-                </td>
-                <td>
-                  <label class="badge badge-warning">In progress</label>
-                </td>
-              </tr>
-            </tbody>
+              </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+
           </table>
 
-          <div class="col-md-12 col-sm-6 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <ngb-pagination [collectionSize]="40" [pageSize]="10" [page]="1" aria-label="Default pagination" class="pagination-flat pagination-success"></ngb-pagination>        
-              </div>
-            </div>
-          </div>
+          <mat-paginator [length]="_RenderClients ? _RenderClients.length : 0" [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 25]">
+          </mat-paginator>
 
         </div>
       </div>

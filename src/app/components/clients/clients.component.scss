@@ -1,0 +1,63 @@
+.table-responsive{
+  overflow: hidden;
+}
+
+mat-table,
+.full-width {
+  width: 100%;
+}
+.mat-row:hover {
+  cursor: pointer;
+}
+
+.chip-list {
+  width: 100%;
+}
+
+.summary {
+  .line-br {
+    border-right: 1px solid #e7e7e7;
+  }
+
+  ul {
+    list-style: none;
+    text-rendering: auto;
+    border: 1px solid #e7e7e7;
+    display: inline-table;
+    margin: 0 0 20px;
+    width: 100%;
+    list-style: none;
+    vertical-align: baseline;
+    outline: 0;
+    padding: 0;
+  } 
+
+  li {
+    box-sizing: border-box;
+    display: table-cell;
+    margin: 0;
+    padding: 12px 12px;
+    position: relative;
+    vertical-align: top;
+    width: 25%;
+  }
+
+}
+
+.alert-issue {
+  color: #f44336;
+}
+
+.color-action {
+  color: #5e7fbe;
+}
+
+th{
+  min-width: 40px;
+}
+
+
+/*Add material styles*/
+.mat-chip-input.mat-input-element {
+  margin: 13px;
+}
