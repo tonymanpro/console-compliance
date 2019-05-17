@@ -34,6 +34,9 @@ import { KnowClientFormComponent } from './components/clients/know-client-form/k
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
+import { MutiStepFormComponent } from './components/muti-step-form/muti-step-form.component';
+import { StepFormSelectorComponent } from './components/step-form-selector/step-form-selector.component';
+import { FormStepDirective } from './directives/form-step.directive';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,10 @@ import { LayoutModule } from '@angular/cdk/layout';
     CarouselComponent,
     TabsComponent,
     ClientsComponent,
-    KnowClientFormComponent
+    KnowClientFormComponent,
+    MutiStepFormComponent,
+    StepFormSelectorComponent,
+    FormStepDirective
   ],
   imports: [
     BrowserModule,
