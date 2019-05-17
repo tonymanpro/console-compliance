@@ -5,11 +5,6 @@ This Template is a administrative template based on Bootstrap 4. The template is
 The Template is a completely responsive and mobile-first admin template that provides a great foundation for your Angular + Bootstrap project.
 This remarkably flexible and highly customizable template helps you create an amazing UI for your admin panel.
 
-## like Demo
-
-Visit: https://www.bootstrapdash.com/demo/star-admin-angular/
-
-[![N|Solid](screenshot.jpg)](http://www.bootstrapdash.com/demo/star-admin-angular)
 
 ## Installation
 
@@ -28,7 +23,6 @@ StarAdmin Free Angular Admin Template/
 ├── package-lock.json
 ├── package.json
 ├── README.md
-├── screenshot.jpg
 ├── tsconfig.json
 ├── tslint.json
 ```

@@ -8,30 +8,57 @@ import { Component, OnInit } from '@angular/core';
 export class KnowClientFormComponent implements OnInit {
 
   form_data = {
-    name: '23',
-    age: 12,
-    address: '',
-    description: ''
+    clientId: '',
+    firstName: '',
+    email: '',
+    status: '',
+    createAt: new Date(),
+    lastName: '',
+    identification: '',
+    identificationPeriod: new Date(),
+    bornDate: new Date(),
+    bornCountryId: 0,
+    livingCountryId: '',
+    nationality: '',
+    province: '',
+    canton: '',
+    distrito: '',
+    primaryPhone: 0,
+    civilStatusId: 0,
+    genderId: 0,
+    addres1: ''
   }
 
   step_form = [
     {
-      title: 'step 1',
+      title: 'Datos Personales',
       data: {
-        name: this.form_data.name,
-        age: this.form_data.age
+        createAt: this.form_data.createAt,
+        firstName: this.form_data.firstName,
+        email: this.form_data.email,
+        identification: this.form_data.identification,
+        identificationPeriod: this.form_data.identificationPeriod,
+        bornDate: this.form_data.bornDate,
+        bornCountryId: this.form_data.bornCountryId,
+        nationality: this.form_data.nationality,
+        livingCountryId: this.form_data.livingCountryId,
+        genderId: this.form_data.genderId,
+        addres1: this.form_data.addres1,
+        province: this.form_data.province,
+        canton: this.form_data.canton,
+        distrito: this.form_data.distrito
       }
     },
     {
-      title: 'step 2',
+      title: 'Información Laboral',
       data: {
-        address: this.form_data.address
+        address: this.form_data.email
       }
     },
     {
-      title: 'step 3',
+      title: 'Fondos, Autorizaciones y otros',
       data: {
-        description: this.form_data.description
+        description: this.form_data.email
       }
     }
   ]

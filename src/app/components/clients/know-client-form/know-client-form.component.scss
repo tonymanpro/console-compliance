@@ -11,3 +11,28 @@ input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
 }
+
+.form-wrapp {
+    widows: 100%;
+}
+
+.form-label {
+    display: block;
+    line-height: inherit;
+    padding: .3rem 0;
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.custom-control {
+    font-size: 13px;
+}
+
+input[type=radio]{
+    transform:scale(1.2);
+  }

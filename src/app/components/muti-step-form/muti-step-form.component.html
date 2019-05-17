@@ -1,7 +1,13 @@
-<br>
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+<style type="text/css"></style>
 <br>
 
 <app-step-form-selector></app-step-form-selector>
+<br>
 <div *ngIf="!!currentView">
-  <ng-content *ngTemplateOutlet="currentView; context: {$implicit: formData[step], nextStepHandle: nextStepHandle, backStepHandle: backStepHandle}"></ng-content>
+  <ng-content
+    *ngTemplateOutlet="currentView; context: {$implicit: formData[step], nextStepHandle: nextStepHandle, backStepHandle: backStepHandle}">
+  </ng-content>
 </div>

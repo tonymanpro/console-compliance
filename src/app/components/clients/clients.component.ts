@@ -37,13 +37,13 @@ export class ClientsComponent implements OnInit {
   loadClients() {
 
     const clients: Client[] = [
-      { clientId: '1', name: 'pablo', email: 'a@a.com', status: 'pending' },
-      { clientId: '2', name: 'jose', email: 'a@a.net', status: 'completed'},
-      { clientId: '3', name: 'Manuel', email: 'a@a.net', status: 'completed'},
-      { clientId: '4', name: 'Marta', email: 'a@a.net', status: 'completed'},
-      { clientId: '5', name: 'jose', email: 'a@a.net', status: 'progress'},
-      { clientId: '6', name: 'Jesus', email: 'a@a.net', status: 'completed'},
-      { clientId: '7', name: 'Alfredo', email: 'a@a.net', status: 'completed'},
+      { clientId: '1', firstName: 'pablo', email: 'a@a.com', status: 'pending' },
+      { clientId: '2', firstName: 'jose', email: 'a@a.net', status: 'completed'},
+      { clientId: '3', firstName: 'Manuel', email: 'a@a.net', status: 'completed'},
+      { clientId: '4', firstName: 'Marta', email: 'a@a.net', status: 'completed'},
+      { clientId: '5', firstName: 'jose', email: 'a@a.net', status: 'progress'},
+      { clientId: '6', firstName: 'Jesus', email: 'a@a.net', status: 'completed'},
+      { clientId: '7', firstName: 'Alfredo', email: 'a@a.net', status: 'completed'},
     ];
 
     this._RawClients = clients;

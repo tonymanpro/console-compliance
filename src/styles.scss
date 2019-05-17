@@ -57,35 +57,9 @@
 /* Add application styles & imports to this file! */
 .hidden {
     display: none
-  }
-  .form-wrapper {
+}
+
+.form-wrapper {
     max-width: 300px;
     padding: 20px 20px 20px 20px
-  }
-
-
-
-
-  /* steps */
-  .step .step-item a {
-    color: #5755d9;
-    display: inline-block;
-    padding: 20px 10px 0;
-    text-decoration: none;
-    text-align: center;
-}
-
-.step .step-item.active~.step-item a {
-    color: #bcc3ce;
-}
-
-a {
-    outline: 0;
-}
-a:visited {
-    color: #807fe2;
-}
-
-.tooltip {
-    position: relative;
 }
