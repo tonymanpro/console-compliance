@@ -14,7 +14,6 @@ Within the download you'll find the following directories and files, logically g
 
 ```
 StarAdmin Free Angular Admin Template/
-├── dist/
 ├── e2e/
 ├── src/
 ├── .editorconfig
