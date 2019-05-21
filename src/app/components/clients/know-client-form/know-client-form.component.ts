@@ -17,7 +17,7 @@ export class KnowClientFormComponent implements OnInit {
     createAt: this.currentDate,
     lastName: '',
     identification: '',
-    identificationPeriod: this.currentDate,
+    idExpirationDate: this.currentDate,
     bornDate: this.currentDate,
     bornCountryId: 0,
     livingCountryId: 0,
@@ -53,7 +53,7 @@ export class KnowClientFormComponent implements OnInit {
     },
     observations: ''
 
-  }
+  };
 
   step_form = [
     {
@@ -63,7 +63,7 @@ export class KnowClientFormComponent implements OnInit {
         firstName: this.form_data.firstName,
         email: this.form_data.email,
         identification: this.form_data.identification,
-        identificationPeriod: this.form_data.identificationPeriod,
+        idExpirationDate: this.form_data.idExpirationDate,
         bornDate: this.form_data.bornDate,
         bornCountryId: this.form_data.bornCountryId,
         nationality: this.form_data.nationality,
