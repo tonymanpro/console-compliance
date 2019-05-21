@@ -37,6 +37,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MutiStepFormComponent } from './components/muti-step-form/muti-step-form.component';
 import { StepFormSelectorComponent } from './components/step-form-selector/step-form-selector.component';
 import { FormStepDirective } from './directives/form-step.directive';
+import { AccountInfoComponent } from './components/clients/account-info/account-info.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { FormStepDirective } from './directives/form-step.directive';
     KnowClientFormComponent,
     MutiStepFormComponent,
     StepFormSelectorComponent,
-    FormStepDirective
+    FormStepDirective,
+    AccountInfoComponent
   ],
   imports: [
     BrowserModule,
