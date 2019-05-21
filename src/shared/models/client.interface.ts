@@ -7,21 +7,21 @@ export interface Client {
   firstName?: string;
   lastName?: string;
   identification?: string;
-  identificationPeriod?: Date;
+  idExpirationDate?: Date;
   bornDate?: string;
   bornCountryId?: number;
   livingCountryId?: string;
   nationality?: string;
-  province?: string;
-  canton?: string;
-  distrito?: string;
+  provinceId?: string;
+  cantonId?: string;
+  distritoId?: string;
   primaryPhone?: number;
   civilStatusId?: number;
   genderId?: number;
   addres1?: string;
-  jobInfo?: Job,
-  PEP?: PEP,
-  accounts?: Account[]
+  jobInfo?: Job;
+  PEP?: PEP;
+  accounts?: Account[];
 }
 
 export interface Job {
@@ -36,7 +36,7 @@ export interface Job {
 
 
 export interface PEP {
-  sourceFunds: string,
+  sourceFunds: string;
   monthlyToTransac: number;
   isPEP: boolean;
   PEPDate: Date;
@@ -48,7 +48,7 @@ export interface Account {
   identification: string;
   nationality: string;
   bornDate: Date;
-  bornCountryId: number,
+  bornCountryId: number;
   professionId: string;
   addres1: string;
 }

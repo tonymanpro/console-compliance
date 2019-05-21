@@ -42,10 +42,10 @@
                   placeholder="Identificación" required>
                 </div>
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="identificationPeriod">Fecha de vencimiento de su ID</label>
+                  <label class="form-label" for="idExpirationDate">Fecha de vencimiento de su ID</label>
                   <input class="form-input"
-                  [ngClass]="{'is-error': identificationPeriod.invalid && (identificationPeriod.dirty || identificationPeriod.touched)}" type="date"
-                  id="identificationPeriod" name="identificationPeriod" [ngModel]="step_content.data.identificationPeriod" #identificationPeriod="ngModel"
+                  [ngClass]="{'is-error': idExpirationDate.invalid && (idExpirationDate.dirty || idExpirationDate.touched)}" type="date"
+                  id="idExpirationDate" name="idExpirationDate" [ngModel]="step_content.data.idExpirationDate" #idExpirationDate="ngModel"
                    required>
                 </div>
                 <div class="col-md-4 mb-3 col-sm-12">
