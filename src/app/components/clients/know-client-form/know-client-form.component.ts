@@ -7,18 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KnowClientFormComponent implements OnInit {
 
+  currentDate = new Date().toISOString().split('T')[0];
+
   form_data = {
     clientId: '',
     firstName: '',
     email: '',
     status: '',
-    createAt: new Date(),
+    createAt: this.currentDate,
     lastName: '',
     identification: '',
-    identificationPeriod: new Date(),
-    bornDate: new Date(),
+    identificationPeriod: this.currentDate,
+    bornDate: this.currentDate,
     bornCountryId: 0,
-    livingCountryId: '',
+    livingCountryId: 0,
     nationality: '',
     province: '',
     canton: '',
@@ -26,7 +28,31 @@ export class KnowClientFormComponent implements OnInit {
     primaryPhone: 0,
     civilStatusId: 0,
     genderId: 0,
-    addres1: ''
+    addres1: '',
+    profession: '',
+    jobPlace: '',
+    jobStartDate: this.currentDate,
+    marketStall: '',
+    jobPhone: '',
+    jobEmail: '',
+    jobAddres: '',
+    monthlyIncome: 0,
+    sourceFunds: '',
+    monthlyToTransac: 0,
+    isPEP: false,
+    PEPDate: this.currentDate,
+    PEPmarketStall: '',
+    accountInfo: {
+      fullName: '',
+      identification: '',
+      nationality: '',
+      bornDate: this.currentDate,
+      bornCountryId: 0,
+      professionId: '',
+      addres1: '',
+    },
+    observations: ''
+
   }
 
   step_form = [
@@ -52,13 +78,34 @@ export class KnowClientFormComponent implements OnInit {
     {
       title: 'Información Laboral',
       data: {
-        address: this.form_data.email
+        profession: this.form_data.profession,
+        jobPlace: this.form_data.jobPlace,
+        jobStartDate: this.form_data.jobStartDate,
+        marketStall: this.form_data.marketStall,
+        jobPhone: this.form_data.jobPhone,
+        jobEmail: this.form_data.jobEmail,
+        jobAddres: this.form_data.jobAddres,
+        monthlyIncome: this.form_data.monthlyIncome
       }
     },
     {
       title: 'Fondos, Autorizaciones y otros',
       data: {
-        description: this.form_data.email
+        sourceFunds: this.form_data.sourceFunds,
+        monthlyToTransac: this.form_data.monthlyToTransac,
+        isPEP: this.form_data.isPEP,
+        PEPDate: this.form_data.PEPDate,
+        PEPmarketStall: this.form_data.PEPmarketStall,
+        accountInfo: {
+          fullName: this.form_data.accountInfo.fullName,
+          identification: this.form_data.accountInfo.identification,
+          nationality: this.form_data.accountInfo.nationality,
+          bornDate: this.form_data.accountInfo.bornDate,
+          bornCountryId: this.form_data.accountInfo.bornCountryId,
+          professionId: this.form_data.accountInfo.professionId,
+          addres1: this.form_data.accountInfo.addres1,
+        },
+        observations: this.form_data.observations,
       }
     }
   ]
@@ -75,9 +122,9 @@ export class KnowClientFormComponent implements OnInit {
       ...this.form_data,
       ...form_data
     }
-    console.log('next',this.form_data)
+    console.log('next', this.form_data)
   }
-  finishAction(){
+  finishAction() {
     console.log(this.form_data)
   }
 }

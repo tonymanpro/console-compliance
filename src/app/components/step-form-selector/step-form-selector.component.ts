@@ -7,6 +7,9 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 })
 export class StepFormSelectorComponent implements OnInit {
 
+@Input() steps: any[] = ['Paso 1','Paso 2',' Paso 3'];
+@Input() currentStep: string = 'Paso 2';
+
   constructor() { }
 
   ngOnInit() {

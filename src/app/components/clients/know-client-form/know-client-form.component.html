@@ -8,7 +8,6 @@
 
         <form #f="ngForm" class="row card-body form-row">
 
-
             <div class="form-row">
                 <div class="col-md-4 mb-3 col-sm-12">
                   <label class="form-label" for="validationcreateAt">Fecha</label>
@@ -33,73 +32,106 @@
                   </div>
                 </div>
               </div>
+
               <div class="form-row">
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationindetification">N° Indetificación</label>
-                  <input type="text" class="form-input" id="identification" placeholder="N° Identificación" required>
+                  <label class="form-label" for="identification">Indetificación</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': identification.invalid && (identification.dirty || identification.touched)}" type="text"
+                  id="identification" name="identification" [ngModel]="step_content.data.identification" #identification="ngModel"
+                  placeholder="Identificación" required>
                 </div>
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationServer04">Fecha de Vencimiento de su ID</label>
-                  <input type="text" class="form-input" id="identificationPeriod" placeholder="Fecha vencimiento" required>
+                  <label class="form-label" for="identificationPeriod">Fecha de vencimiento de su ID</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': identificationPeriod.invalid && (identificationPeriod.dirty || identificationPeriod.touched)}" type="date"
+                  id="identificationPeriod" name="identificationPeriod" [ngModel]="step_content.data.identificationPeriod" #identificationPeriod="ngModel"
+                   required>
                 </div>
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationbornDate">Fecha de nacimiento</label>
-                  <input type="text" class="form-input" id="bornDate" placeholder="Fecha de Nacimiento" required>
+                  <label class="form-label" for="bornDate">Fecha de nacimiento</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': bornDate.invalid && (bornDate.dirty || bornDate.touched)}" type="date"
+                  id="bornDate" name="bornDate" [ngModel]="step_content.data.bornDate" #bornDate="ngModel"
+                   required>
                 </div>
               </div>
         
-        
               <div class="form-row">
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationindetification">País de nacimiento</label>
-                  <input type="text" class="form-input" id="bornCountryId" placeholder="País de nacimiento" required>
+                  <label class="form-label" for="bornCountryId">País de nacimiento</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': bornCountryId.invalid && (bornCountryId.dirty || bornCountryId.touched)}" type="text"
+                  id="bornCountryId" name="bornCountryId" [ngModel]="step_content.data.bornCountryId" #bornCountryId="ngModel"
+                   required>
                 </div>
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationServer04">País de recidencia</label>
-                  <input type="text" class="form-input" id="livingCountryId" placeholder="País de recidencia" required>
+                  <label class="form-label" for="livingCountryId">País de recidencia</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': livingCountryId.invalid && (livingCountryId.dirty || livingCountryId.touched)}" type="text"
+                  id="livingCountryId" name="livingCountryId" [ngModel]="step_content.data.livingCountryId" #livingCountryId="ngModel"
+                   required>
                 </div>
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationbornDate">Nacionalidad</label>
-                  <input type="text" class="form-input" id="nationality" placeholder="Nacionalidad" required>
+                  <label class="form-label" for="nationality">Nacionalidad</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': nationality.invalid && (nationality.dirty || nationality.touched)}" type="text"
+                  id="nationality" name="nationality" [ngModel]="step_content.data.nationality" #nationality="ngModel"
+                   placeholder="Nacionalidad" required>
                 </div>
               </div>
         
+              <div class="form-row">
+                <div class="col-md-4 mb-3 col-sm-12">
+                  <label class="form-label" for="province">Provincia</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': province.invalid && (province.dirty || province.touched)}" type="text"
+                  id="province" name="province" [ngModel]="step_content.data.province" #province="ngModel"
+                   placeholder="Provincia" required>
+                </div>
+                <div class="col-md-4 mb-3 col-sm-12">
+                  <label class="form-label" for="province">Cantón</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': canton.invalid && (canton.dirty || canton.touched)}" type="text"
+                  id="canton" name="canton" [ngModel]="step_content.data.canton" #canton="ngModel"
+                   placeholder="Cantón" required>
+                </div>
+                <div class="col-md-4 mb-3 col-sm-12">
+                  <label class="form-label" for="province">Cantón</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': distrito.invalid && (distrito.dirty || distrito.touched)}" type="text"
+                  id="distrito" name="distrito" [ngModel]="step_content.data.distrito" #distrito="ngModel"
+                   placeholder="Distrito" required>
+                </div>
+              </div>        
         
               <div class="form-row">
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationindetification">Provincia</label>
-                  <input type="text" class="form-input" id="province" placeholder="Provincia" required>
+                  <label class="form-label" for="primaryPhone">Teléfono</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': primaryPhone.invalid && (primaryPhone.dirty || primaryPhone.touched)}" type="text"
+                  id="primaryPhone" name="primaryPhone" [ngModel]="step_content.data.primaryPhone" #primaryPhone="ngModel"
+                   placeholder="Teléfono" required>
                 </div>
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationServer04">Cantón</label>
-                  <input type="text" class="form-input" id="identificationPeriod" placeholder="Cantón" required>
+                  <label class="form-label" for="email">Correo</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': email.invalid && (email.dirty || email.touched)}" type="text"
+                  id="email" name="email" [ngModel]="step_content.data.email" #email="ngModel"
+                   placeholder="Correo" required>
                 </div>
                 <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationbornDate">Distrito</label>
-                  <input type="text" class="form-input" id="bornDate" placeholder="Distrito" required>
+                  <label class="form-label" for="civilStatusId">Estado civil</label>
+                  <input class="form-input"
+                  [ngClass]="{'is-error': civilStatusId.invalid && (civilStatusId.dirty || civilStatusId.touched)}" type="text"
+                  id="civilStatusId" name="civilStatusId" [ngModel]="step_content.data.civilStatusId" #civilStatusId="ngModel"
+                   placeholder="Estado civil" required>
                 </div>
-              </div>
-        
-        
-              <div class="form-row">
-                <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationindetification">Teléfono</label>
-                  <input type="text" class="form-input" id="primaryPhone" placeholder="Teléfono" required>
-                </div>
-                <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationServer04">Correo</label>
-                  <input type="text" class="form-input" id="email" placeholder="Correo" required>
-                </div>
-                <div class="col-md-4 mb-3 col-sm-12">
-                  <label class="form-label" for="validationindetification">Estado civil</label>
-                  <input type="text" class="form-input" id="civilStatusId" placeholder="Estado civil" required>
-                </div>
-              </div>
-        
+              </div>        
         
               <div class="form-row">
                 <div class="col-md-4">
-                  <label class="form-label" for="validationServer04">Género</label>
+                  <label class="form-label" for="gender">Género</label>
                   <div class="form-check">
                       <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="M" checked>
                       <label class="form-label" for="exampleRadios1">
@@ -113,12 +145,13 @@
                       </label>
                     </div>
                 </div>
-                <div class="col-md-8 mb-3">
-                  <label class="form-label" for="validationbornDate">Dirección</label>
-                  <textarea class="form-input" id="addres1" name="addres1" placeholder="Dirección" required></textarea>
+                <div class="col-md-8 mb-3">                  
+                  <label class="form-label" for="addres1">Dirección</label>
+                  <textarea class="form-input" [ngClass]="{'is-error': addres1.invalid && (addres1.dirty || addres1.touched)}"
+                  id="addres1" name="addres1" [ngModel]="step_content.data.addres1" #addres1="ngModel"
+                   placeholder="Dirección" required></textarea>
                 </div>
-              </div>
-        
+              </div>        
         
               <hr>
         
@@ -139,33 +172,157 @@
 
   <ng-template let-step_content let-nextStepHandle="nextStepHandle" let-backStepHandle="backStepHandle">
     <div appFormStep id='2'>
-      <div class="form-wrapper">
-        <h5>{{step_content.title}}</h5>{{form_data.createAt}}
-        <form #f="ngForm">
-          <div class="form-group">
-            <label class="form-label" class="form-label" for="company">Company</label>
-            <input class="form-input" [ngModel]="step_content.data.address" #address="ngModel" type="text"
-              name="address" id="company" required placeholder="Company" required
-              [ngClass]="{'is-error': address.invalid && (address.touched || address.dirty)}">
+      <div class="container">
+        <h5>{{step_content.title}}</h5>
+        <form #f="ngForm" class="row card-body form-row">
+          
+          <div class="form-row">
+            <div class="col-md-4 mb-3 col-sm-12">
+              <label class="form-label" for="validationprofession">Prefesión</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': profession.invalid && (profession.dirty || profession.touched)}" type="text"
+              id="profession" name="profession" [ngModel]="step_content.data.profession" #profession="ngModel"
+              placeholder="profesión" required>
+            </div>
+            <div class="col-md-4 mb-3 col-sm-12">
+                <label class="form-label" for="jobPlace">Lugar de trabajo</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': jobPlace.invalid && (jobPlace.dirty || jobPlace.touched)}" type="text"
+              id="jobPlace" name="jobPlace" [ngModel]="step_content.data.jobPlace" #jobPlace="ngModel"
+              placeholder="Nombre" required>
+            </div>
+            <div class="col-md-4 mb-3 col-sm-12">
+              <label class="form-label" for="jobStartDate">Fecha de inicio</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                </div>
+                <input class="form-input"
+                [ngClass]="{'is-error': jobStartDate.invalid && (jobStartDate.dirty || jobStartDate.touched)}" type="date"
+                id="jobStartDate" name="jobStartDate" [ngModel]="step_content.data.jobStartDate" #jobStartDate="ngModel"
+                placeholder="Apellidos" required>
+              </div>
+            </div>
           </div>
+
+          <div class="form-row">
+            <div class="col-md-4 mb-3 col-sm-12">
+              <label class="form-label" for="marketStall">Puesto que desempeña</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': marketStall.invalid && (marketStall.dirty || marketStall.touched)}" type="text"
+              id="marketStall" name="marketStall" [ngModel]="step_content.data.marketStall" #marketStall="ngModel"
+              placeholder="Apellidos" required>
+            </div>
+            <div class="col-md-4 mb-3 col-sm-12">              
+              <label class="form-label" for="jobPhone">Teléfono</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': jobPhone.invalid && (jobPhone.dirty || jobPhone.touched)}" type="text"
+              id="jobPhone" name="jobPhone" [ngModel]="step_content.data.jobPhone" #jobPhone="ngModel"
+              placeholder="Apellidos" required>
+            </div>
+            <div class="col-md-4 mb-3 col-sm-12"> 
+              <label class="form-label" for="jobEmail">Correo laboral</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': jobEmail.invalid && (jobEmail.dirty || jobEmail.touched)}" type="text"
+              id="jobEmail" name="jobEmail" [ngModel]="step_content.data.jobEmail" #jobEmail="ngModel"
+              placeholder="Apellidos" required>
+            </div>
+          </div>
+    
+          <div class="form-row">
+            <div class="col-md-4 mb-3 col-sm-12">
+              <label class="form-label" for="jobEmail">Dirección</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': jobAddres.invalid && (jobAddres.dirty || jobAddres.touched)}" type="text"
+              id="jobAddres" name="jobAddres" [ngModel]="step_content.data.jobAddres" #jobAddres="ngModel" required>
+            </div>
+            <div class="col-md-4 mb-3 col-sm-12">
+              <label class="form-label" for="jobEmail">Salario</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': monthlyIncome.invalid && (monthlyIncome.dirty || monthlyIncome.touched)}" type="number"
+              id="monthlyIncome" name="monthlyIncome" [ngModel]="step_content.data.monthlyIncome" #monthlyIncome="ngModel" required>
+            </div>
+          </div>
+
         </form>
         <button class="btn btn-error" (click)="backStepHandle()">Back</button>
-        <button class="btn btn-success" [disabled]="f.invalid"
-          (click)="nextStepHandle({address: address.value})">Next</button>
+        <button class="btn btn-success" [disabled]="f.invalid" (click)="nextStepHandle(f.value)">Next</button>
       </div>
     </div>
   </ng-template>
 
   <ng-template let-step_content>
     <div appFormStep id='3'>
-      <div class="form-wrapper">
+      <div class="container">
         <h5>{{step_content.title}}</h5>
-        <div class="form-group">
-          <div class="form-group">
-            <label class="form-label" class="form-label" for="desc">Description</label>
-            <textarea class="form-input" id="desc" placeholder="Textarea" rows="3"></textarea>
+        
+        <form #f="ngForm" class="row card-body form-row">
+          
+          <div class="form-row">
+            <div class="col-md-4 mb-3 col-sm-12">
+              <label class="form-label" for="sourceFunds">Origen de los fondos</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': sourceFunds.invalid && (sourceFunds.dirty || sourceFunds.touched)}" type="text"
+              id="sourceFunds" name="sourceFunds" [ngModel]="step_content.data.sourceFunds" #sourceFunds="ngModel"
+               required>
+            </div>
+            <div class="col-md-3 mb-3 col-sm-12">
+                <label class="form-label" for="monthlyToTransac">Monto o transaccionar por mes</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': monthlyToTransac.invalid && (monthlyToTransac.dirty || monthlyToTransac.touched)}" type="number"
+              id="monthlyToTransac" name="monthlyToTransac" [ngModel]="step_content.data.monthlyToTransac" #monthlyToTransac="ngModel"
+              placeholder="Monto" required>
+            </div>
+            <div class="col-md-5 mb-3 col-sm-12">
+              <label class="form-label" for="jobStartDate">Es usted o su cónyuge una PERSONA EXPUESTA POLÍTICAMENTE - PEP?</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                </div>
+                <input class="form-input"
+                [ngClass]="{'is-error': isPEP.invalid && (isPEP.dirty || isPEP.touched)}" type="checkbox"
+                id="isPEP" name="isPEP" [ngModel]="step_content.data.isPEP" #isPEP="ngModel" required>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div class="form-row">
+            <div class="col-md-5 mb-3 col-sm-12">
+              <label class="form-label" for="PEPDate">Fecha en que lo fue</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': PEPDate.invalid && (PEPDate.dirty || PEPDate.touched)}" type="date"
+              id="PEPDate" name="PEPDate" [ngModel]="step_content.data.PEPDate" #PEPDate="ngModel"
+               required>
+            </div>
+            <div class="col-md-7 mb-3 col-sm-12">              
+              <label class="form-label" for="PEPmarketStall">Puesto que desempeño</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': PEPmarketStall.invalid && (PEPmarketStall.dirty || PEPmarketStall.touched)}" type="text"
+              id="PEPmarketStall" name="PEPmarketStall" [ngModel]="step_content.data.PEPmarketStall" #PEPmarketStall="ngModel"
+              placeholder="Puesto" required>
+            </div>
+          </div>
+    <hr>
+          <div class="form-row">
+            <!--TODO: Hacerlo en otro componente-->
+            <h3>Autorizados en la cuenta</h3>
+            <br>
+            <div class="col-md-4 mb-3 col-sm-12">
+              <label class="form-label" for="jobEmail">Nombre completo</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': accountInfo.fullName.invalid && (accountInfo.fullName.dirty ||accountInfo. fullName.touched)}" type="text"
+              id="accountInfo.fullName" name="accountInfo.fullName" [ngModel]="step_content.data.accountInfo.fullName"
+               #accountInfo.fullName="ngModel" required>
+            </div>
+            <div class="col-md-4 mb-3 col-sm-12">
+              <label class="form-label" for="jobEmail">Salario</label>
+              <input class="form-input"
+              [ngClass]="{'is-error': accountInfo.identification.invalid && (accountInfo.identification.dirty || accountInfo.identification.touched)}" 
+              type="number"
+              id="accountInfo.identification" name="accountInfo.identification" [ngModel]="step_content.data.monthlyIncome" 
+              #accountInfo.identification="ngModel" required>
+            </div>
+          </div>
+
+        </form>
 
         <button class="btn btn-error">Back</button>
         <button class="btn btn-success">Finish</button>
