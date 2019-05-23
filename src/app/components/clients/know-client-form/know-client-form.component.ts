@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Client, Job, PEP, AccountUser } from '../../../../shared/models/client.interface';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { AccountInfoComponent } from '../account-info/account-info.component';
 
 @Component({
   selector: 'app-know-client-form',
@@ -9,122 +12,92 @@ export class KnowClientFormComponent implements OnInit {
 
   currentDate = new Date().toISOString().split('T')[0];
 
-  form_data = {
-    clientId: '',
-    firstName: '',
-    email: '',
-    status: '',
-    createAt: this.currentDate,
-    lastName: '',
-    identification: '',
-    idExpirationDate: this.currentDate,
-    bornDate: this.currentDate,
-    bornCountryId: 0,
-    livingCountryId: 0,
-    nationality: '',
-    province: '',
-    canton: '',
-    distrito: '',
-    primaryPhone: 0,
-    civilStatusId: 0,
-    genderId: 0,
-    addres1: '',
-    profession: '',
-    jobPlace: '',
-    jobStartDate: this.currentDate,
-    marketStall: '',
-    jobPhone: '',
-    jobEmail: '',
-    jobAddres: '',
-    monthlyIncome: 0,
-    sourceFunds: '',
-    monthlyToTransac: 0,
-    isPEP: false,
-    PEPDate: this.currentDate,
-    PEPmarketStall: '',
-    accountInfo: {
-      fullName: '',
-      identification: '',
-      nationality: '',
-      bornDate: this.currentDate,
-      bornCountryId: 0,
-      professionId: '',
-      addres1: '',
-    },
-    observations: ''
-
-  };
+  client = new Client();
+  job = new Job();
+  PEP = new PEP();
+  accounts = new Array<AccountUser>();
 
   step_form = [
     {
       title: 'Datos Personales',
       data: {
-        createAt: this.form_data.createAt,
-        firstName: this.form_data.firstName,
-        email: this.form_data.email,
-        identification: this.form_data.identification,
-        idExpirationDate: this.form_data.idExpirationDate,
-        bornDate: this.form_data.bornDate,
-        bornCountryId: this.form_data.bornCountryId,
-        nationality: this.form_data.nationality,
-        livingCountryId: this.form_data.livingCountryId,
-        genderId: this.form_data.genderId,
-        addres1: this.form_data.addres1,
-        province: this.form_data.province,
-        canton: this.form_data.canton,
-        distrito: this.form_data.distrito
+        createAt: this.client.createAt,
+        firstName: this.client.firstName,
+        email: this.client.email,
+        identification: this.client.identification,
+        idExpirationDate: this.client.idExpirationDate,
+        bornDate: this.client.bornDate,
+        bornCountryId: this.client.bornCountryId,
+        nationality: this.client.nationality,
+        livingCountryId: this.client.livingCountryId,
+        genderId: this.client.genderId,
+        addres1: this.client.addres1,
+        province: this.client.provinceId,
+        canton: this.client.cantonId,
+        distrito: this.client.distritoId
       }
     },
     {
       title: 'Información Laboral',
       data: {
-        profession: this.form_data.profession,
-        jobPlace: this.form_data.jobPlace,
-        jobStartDate: this.form_data.jobStartDate,
-        marketStall: this.form_data.marketStall,
-        jobPhone: this.form_data.jobPhone,
-        jobEmail: this.form_data.jobEmail,
-        jobAddres: this.form_data.jobAddres,
-        monthlyIncome: this.form_data.monthlyIncome
+        professionId: 0,
+        jobPlace: this.job.professionId,
+        jobStartDate: this.job.jobStartDate,
+        marketStall: this.job.marketStall,
+        jobPhone: this.job.jobPhone,
+        jobEmail: this.job.jobEmail,
+        jobAddres: this.job.jobAddres,
+        monthlyIncome: this.job.monthlyIncome
       }
     },
     {
       title: 'Fondos, Autorizaciones y otros',
       data: {
-        sourceFunds: this.form_data.sourceFunds,
-        monthlyToTransac: this.form_data.monthlyToTransac,
-        isPEP: this.form_data.isPEP,
-        PEPDate: this.form_data.PEPDate,
-        PEPmarketStall: this.form_data.PEPmarketStall,
-        accountInfo: {
-          fullName: this.form_data.accountInfo.fullName,
-          identification: this.form_data.accountInfo.identification,
-          nationality: this.form_data.accountInfo.nationality,
-          bornDate: this.form_data.accountInfo.bornDate,
-          bornCountryId: this.form_data.accountInfo.bornCountryId,
-          professionId: this.form_data.accountInfo.professionId,
-          addres1: this.form_data.accountInfo.addres1,
-        },
-        observations: this.form_data.observations,
+        sourceFunds: this.PEP.sourceFunds,
+        monthlyToTransac: this.PEP.monthlyToTransac,
+        isPEP: this.PEP.isPEP,
+        PEPDate: this.PEP.PEPDate,
+        PEPmarketStall: this.PEP.PEPmarketStall,
+        accountInfo: this.client.accounts,
+        observations: this.client.observations,
       }
     }
   ]
 
   start_step = 1
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
   setFormData(form_data) {
-    this.form_data = {
-      ...this.form_data,
+    this.client = {
+      ...this.client,
       ...form_data
     }
-    console.log('next', this.form_data)
+    console.log('next', this.client)
   }
+
   finishAction() {
-    console.log(this.form_data)
+    console.log(this.client)
+  }
+
+
+  openAddAccount() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.maxWidth = "800px";
+    const dialogRef = this.dialog.open(AccountInfoComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(
+      data => {
+        console.log("Dialog output:", data)
+        var position = this.accounts != null ? this.accounts.length : 0
+        console.log(position);
+        this.accounts.push(data);
+        this.client.accounts = this.accounts;
+      }
+    );
   }
 }
