@@ -24,7 +24,7 @@ import { KnowClientFormComponent } from './components/clients/know-client-form/k
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: KnowClientFormComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'forms', component: FormsComponent },
   { path: 'buttons', component: ButtonsComponent },
   { path: 'tables', component: TablesComponent },
