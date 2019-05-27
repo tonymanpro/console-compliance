@@ -1,5 +1,5 @@
 
-export interface Client {
+export class Client {
   clientId: string;
   email: string;
   status: string;
@@ -21,21 +21,23 @@ export interface Client {
   addres1?: string;
   jobInfo?: Job;
   PEP?: PEP;
-  accounts?: Account[];
+  accounts?: AccountUser[];
+  observations?: string;
 }
 
-export interface Job {
-  profession: string;
+export class Job {
+  professionId: string;
   jobPlace: string;
   jobStartDate: Date;
   marketStall: string;
   jobPhone: string;
   jobEmail: string;
   jobAddres: string;
+  monthlyIncome: number
 }
 
 
-export interface PEP {
+export class PEP {
   sourceFunds: string;
   monthlyToTransac: number;
   isPEP: boolean;
@@ -43,7 +45,7 @@ export interface PEP {
   PEPmarketStall: string;
 }
 
-export interface Account {
+export class AccountUser {
   fullName: string;
   identification: string;
   nationality: string;

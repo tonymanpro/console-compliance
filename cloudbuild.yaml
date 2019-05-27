@@ -1,0 +1,23 @@
+steps:
+# build the application
+- name: 'gcr.io/cloud-builders/docker'
+  args: 
+  - "build"
+  - "--build-arg"
+  - "_ENVIRONMENT=${_ENVIRONMENT}"
+  - "-t"
+  - "gcr.io/${PROJECT_ID}/console-compliance:${BRANCH_NAME}-${SHORT_SHA}"
+  - "."
+  # push the image
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'push', 'gcr.io/${PROJECT_ID}/console-compliance:${BRANCH_NAME}-${SHORT_SHA}']  
+  id: 'push-project'
+# deploy the application in app engine
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['set', 'image', 'deployment/console-compliance', 'console-compliance=gcr.io/${PROJECT_ID}/console-compliance:${BRANCH_NAME}-${SHORT_SHA}']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-f'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_MY_CLUSTER}' # _MY_CLUSTER is a local variable in gcb
+  waitFor: ['push-project'] #Wait for a commit image deploy process
+timeout: 1200s # Timeout 20 min
+images: ['gcr.io/${PROJECT_ID}/console-compliance']

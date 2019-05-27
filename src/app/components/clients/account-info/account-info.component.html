@@ -1,3 +1,46 @@
-<p>
-  account-info works!
-</p>
+<h2 mat-dialog-title>Agregar cuenta</h2>
+
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+    <mat-label>Nombre completo</mat-label>
+    <input matInput placeholder="Nombre Completo" formControlName="fullName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Indetificación</mat-label>
+    <input matInput placeholder="Indetificación" formControlName="identification">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nacionalidad</mat-label>
+    <input matInput placeholder="Nacionalidad" formControlName="nationality">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Fecha de nacimiento</mat-label>
+    <input matInput [matDatepicker]="myDatepicker" formControlName="bornDate">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>País de nacimiento</mat-label>
+    <input matInput placeholder="País de nacimiento" formControlName="bornCountryId">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Profesión</mat-label>
+    <input matInput placeholder="Profesión" formControlName="professionId">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Dirección</mat-label>
+    <input matInput placeholder="Dirección" formControlName="addres1">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Descripción</mat-label>
+    <input matInput placeholder="Descripción" formControlName="description">
+    <mat-hint>Opcional</mat-hint>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>
