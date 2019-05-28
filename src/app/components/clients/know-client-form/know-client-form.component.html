@@ -192,16 +192,14 @@
                 id="jobPlace" name="jobPlace" [ngModel]="step_content.data.jobPlace" #jobPlace="ngModel"
                 placeholder="Nombre" required>
             </div>
-            <div class="col-md-4 mb-3 col-sm-12">
-              <label class="form-label" for="jobStartDate">Fecha de inicio</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                </div>
-                <input class="form-input"
-                  [ngClass]="{'is-error': jobStartDate.invalid && (jobStartDate.dirty || jobStartDate.touched)}"
-                  type="date" id="jobStartDate" name="jobStartDate" [ngModel]="step_content.data.jobStartDate"
-                  #jobStartDate="ngModel" placeholder="Apellidos" required>
-              </div>
+            <div class="col-md-4 mt-3 col-sm-12">              
+                <mat-form-field>
+                  <mat-label>Fecha de inicio</mat-label>
+                  <input matInput [matDatepicker]="jobStartDate" [ngClass]="{'is-error': jobStartDate.invalid && (jobStartDate.dirty || jobStartDate.touched)}"
+                  id="jobStartDate" name="jobStartDate" [ngModel]="step_content.data.jobStartDate" #jobStartDate="ngModel" required>
+                  <mat-datepicker-toggle matSuffix [for]="jobStartDate"></mat-datepicker-toggle>
+                  <mat-datepicker #jobStartDate></mat-datepicker>
+                </mat-form-field>               
             </div>
           </div>
 
@@ -275,26 +273,28 @@
                 [ngModel]="step_content.data.monthlyToTransac" #monthlyToTransac="ngModel" pattern="^[0-9]{8}$"
                 placeholder="Monto" required>
             </div>
-            <div class="col-md-5 mb-3 col-sm-12">
-              <label class="form-label" for="jobStartDate">Es usted o su cónyuge una PERSONA EXPUESTA POLÍTICAMENTE -
-                PEP?</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                </div>
-                <input class="form-input" [ngClass]="{'is-error': isPEP.invalid && (isPEP.dirty || isPEP.touched)}"
-                  type="checkbox" id="isPEP" name="isPEP" [ngModel]="step_content.data.isPEP" #isPEP="ngModel" required>
-              </div>
+            <div class="col-md-5 mt-4 col-sm-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [ngClass]="{'is-error': isPEP.invalid && (isPEP.dirty || isPEP.touched)}"
+                    type="checkbox" id="isPEP" name="isPEP" [ngModel]="step_content.data.isPEP" #isPEP="ngModel" required>
+                    <label class="form-check-label" for="defaultCheck1">
+                        Es usted o su cónyuge una PERSONA EXPUESTA POLÍTICAMENTE - PEP?
+                    </label>
+                  </div>
             </div>
           </div>
 
           <div class="form-row">
-            <div class="col-md-5 mb-3 col-sm-12">
-              <label class="form-label" for="PEPDate">Fecha en que lo fue</label>
-              <input class="form-input" [ngClass]="{'is-error': PEPDate.invalid && (PEPDate.dirty || PEPDate.touched)}"
-                type="date" id="PEPDate" name="PEPDate" [ngModel]="step_content.data.PEPDate" #PEPDate="ngModel"
-                required>
+            <div class="col-md-4 mt-3 col-sm-12">
+                <mat-form-field>
+                    <mat-label>Fecha en que lo fue</mat-label>
+                    <input matInput [matDatepicker]="PEPDate" [ngClass]="{'is-error': PEPDate.invalid && (PEPDate.dirty || PEPDate.touched)}"
+                    id="PEPDate" name="PEPDate" [ngModel]="step_content.data.PEPDate" #PEPDate="ngModel" required>
+                    <mat-datepicker-toggle matSuffix [for]="PEPDate"></mat-datepicker-toggle>
+                    <mat-datepicker #PEPDate></mat-datepicker>
+                  </mat-form-field> 
             </div>
-            <div class="col-md-7 mb-3 col-sm-12">
+            <div class="col-md-4 mb-3 col-sm-12">
               <label class="form-label" for="PEPmarketStall">Puesto que desempeño</label>
               <input class="form-input"
                 [ngClass]="{'is-error': PEPmarketStall.invalid && (PEPmarketStall.dirty || PEPmarketStall.touched)}"
@@ -307,19 +307,84 @@
             <!--TODO: Hacerlo en otro componente-->
             <h3>Autorizados en la cuenta</h3>
             <br>
-            <div class="col-md-4 mb-3 col-sm-12">
-              <label class="form-label" for="jobEmail">Nombre completo</label>
-              <input class="form-input"
-                [ngClass]="{'is-error': accountInfo.fullName.invalid && (accountInfo.fullName.dirty ||accountInfo. fullName.touched)}"
-                type="text" id="accountInfo.fullName" name="accountInfo.fullName"
-                [ngModel]="step_content.data.accountInfo.fullName" #accountInfo.fullName="ngModel" required>
-            </div>
-            <div class="col-md-4 mb-3 col-sm-12">
-              <label class="form-label" for="jobEmail">Salario</label>
-              <input class="form-input"
-                [ngClass]="{'is-error': accountInfo.identification.invalid && (accountInfo.identification.dirty || accountInfo.identification.touched)}"
-                type="number" pattern="^[0-9]{8}$" id="accountInfo.identification" name="accountInfo.identification"
-                [ngModel]="step_content.data.monthlyIncome" #accountInfo.identification="ngModel" required>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2 border-right">
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-sm btn-primary" (click)="openAddAccount()">Agregar Autorizados</button>
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-hover ">
+                                        <thead class="bg-light ">
+                                          <tr>
+                                            <th>
+                                              <div class="form-check-inline">
+                                                  <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" value="">
+                                                   </label>
+                                               </div>
+                                            </th>  
+                                            <th>Username</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Posts</th>
+                                            <th>Edit</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>
+                                                <div class="form-check-inline">
+                                                  <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" value="">
+                                                   </label>
+                                               </div>
+                                            </td>  
+                                            <td><a href="#"><small>Johnyahua</small></a></td>
+                                            <td><small>Doe</small></td>
+                                            <td><small>john@example.com</small></td>
+                                            <td><small>Admin</small></td>
+                                            <td><a href="#"><small>5</small></a></td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                <a href="#"><i class="fa fa-eye"></i></a>
+                                                <a href="#"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>
+                                                <div class="form-check-inline">
+                                                  <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" value="">
+                                                   </label>
+                                               </div>
+                                            </td>  
+                                            <td><a href="#"><small>Johnyahua</small></a></td>
+                                            <td><small>Doe</small></td>
+                                            <td><small>john@example.com</small></td>
+                                            <td><small>Admin</small></td>
+                                            <td><a href="#"><small>5</small></a></td>
+                                            <td>
+                                                <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                                <a href="#"><i class="fa fa-eye"></i></a>
+                                                <a href="#"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                          </tr>
+                                         
+                                         
+                                        </tbody>
+                                      </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
           </div>
 
