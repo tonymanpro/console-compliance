@@ -12,9 +12,9 @@ This remarkably flexible and highly customizable template helps you create an am
 
 Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
 
+
 ```
 StarAdmin Free Angular Admin Template/
-├── dist/
 ├── e2e/
 ├── src/
 ├── .editorconfig

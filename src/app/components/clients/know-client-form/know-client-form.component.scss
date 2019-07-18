@@ -24,6 +24,10 @@ input[type=date]::-webkit-inner-spin-button {
     padding-top: 5px;
 }
 
+.mat-form-field {
+    width: 95%;
+}
+
 label {
     display: inline-block;
     margin-bottom: 0.5rem;
@@ -36,3 +40,7 @@ label {
 input[type=radio]{
     transform:scale(1.2);
   }
+
+  input[type=checkbox] {
+    width: auto;
+}

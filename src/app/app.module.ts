@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -38,6 +38,7 @@ import { MutiStepFormComponent } from './components/muti-step-form/muti-step-for
 import { StepFormSelectorComponent } from './components/step-form-selector/step-form-selector.component';
 import { FormStepDirective } from './directives/form-step.directive';
 import { AccountInfoComponent } from './components/clients/account-info/account-info.component';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -67,16 +68,24 @@ import { AccountInfoComponent } from './components/clients/account-info/account-
     StepFormSelectorComponent,
     FormStepDirective,
     AccountInfoComponent
+  ],  
+  entryComponents: [
+    AccountInfoComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    FormsModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     LayoutModule,
+    MatDialogModule,
     NgbModule.forRoot()
+  ],
+  exports: [
+    AccountInfoComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
